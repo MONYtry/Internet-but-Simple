@@ -44,13 +44,13 @@ const translations = {
 
         tcp_description: "TCP ist ein Protokoll, welches Daten überträgt.<br><br>Bevor aber Daten gesendet werden können, muss ein sogenannter <a href='#TCP-Handshake'>TCP-Handshake </a> erfolgen.<br><br>Falls dieser erfolgreich war, werden die Daten so übertragen:<br><br>Daten gesendet -> Empfangen?<br><br>Falls nein -> Erneut den fehlenden Teil senden<br><br>Quasi wie die Post, gut für Nachrichten.",
 
-        handshake_description: "Wenn ein Nutzer eine TCP-Anfrage sendet, passiert Folgendes:<br><br>Nutzer sendet SYN<br>Server antwortet mit SYN + ACK<br>Nutzer sendet ACK<br><br>Danach steht die Verbindung erst.<br><br>*ACK = Acknowledgment, SYN = Synchronize",
+        handshake_description: "Wenn ein Nutzer eine TCP-Anfrage sendet, passiert Folgendes:<br><br><pre>Client sendet SYN<br>Server antwortet mit SYN + ACK<br>Client sendet ACK</pre>Danach steht die Verbindung erst.<br><br>*ACK = Acknowledgment, SYN = Synchronize",
 
         udp_description: "UDP ist ein Protokoll, welches Daten sendet, auch wenn sie nicht ankommen.<br><br>Gut für Live-Übertragungen.",
 
         https_description: "HTTPS bedeutet HyperText Transfer Protocol Secure.<br><br>Es unterscheidet sich hauptsächlich durch den Sicherheitsstandard von HTTP.<br><br>Durch die Verschlüsselung der Daten ist es für Außenstehende sehr schwierig, die übertragenen Inhalte mitzulesen.<br><br>Mittlerweile ist es der Standard für Websites / Hoster.",
         wireshark_description: "Wireshark ist eine Software gemacht für das Analysieren des Netzwerkes und auch sein Verkehr",
-        dns_description: "DNS steht für Dynamic Name System. Anstatt das man immer wieder eine <a href='#IPv4'>IPv4</a> eingibt nutzt man Domains.",
+        dns_description: "DNS steht für Domain Name System. Anstatt das man immer wieder eine <a href='#IPv4'>IPv4</a> eingibt nutzt man Domains.",
         ipv4_description: "Eine IPv4-Adresse ist im Grunde wie eine Postadresse.<br><br>Statt eines Postboten verwendet ein anderes Gerät diese Adresse, um mit einem bestimmten Gerät im Netzwerk zu kommunizieren.<br><br>So weiß das Netzwerk, an welches Gerät die Daten gesendet werden sollen.",
     },
 
@@ -96,13 +96,13 @@ const translations = {
 
         tcp_description: "TCP is a protocol that transfers data.<br><br>Before data can be sent, a so-called <b>TCP handshake</b> must take place.<br><br>If the handshake is successful, data is transferred like this:<br><br>Data is sent -> Was it received?<br><br>If not -> The missing part is sent again.<br><br>It works a bit like the postal service and is useful for reliable communication.",
 
-        handshake_description: "When a user starts a TCP connection, the following happens:<br><br>User sends SYN<br>Server responds with SYN + ACK<br>User sends ACK<br><br>Only then is the connection established.<br><br>*ACK = Acknowledgment, SYN = Synchronize",
+        handshake_description: "When a user starts a TCP connection, the following happens:<br><br><pre>User sends SYN<br>Server responds with SYN + ACK<br>User sends ACK</pre>Only then is the connection established.<br><br>*ACK = Acknowledgment, SYN = Synchronize",
 
         udp_description: "UDP is a protocol that sends data without checking whether it actually arrives.<br><br>It is useful for live broadcasts and real-time communication.",
 
         https_description: "HTTPS stands for HyperText Transfer Protocol Secure.<br><br>The main difference from HTTP is its security.<br><br>Data is encrypted, making it much harder for outsiders to read the transmitted information.<br><br>Today, HTTPS is the standard for websites.",
         wireshark_description: "Wireshark is an Software made for analysing the network and its traffic",
-        dns_description: "DNS stands for Dynamic Name System. Instead of typing  das man immer wieder eine <a href='#IPv4'>IPv4</a> eingibt nutzt man Domains.",
+        dns_description: "DNS stands for Domain Name System. Instead of typing  das man immer wieder eine <a href='#IPv4'>IPv4</a> eingibt nutzt man Domains.",
         ipv4_description: "An IPv4 is basicly an mail-adress that is getting used by your deliveryguy. But instead of the deliveryguy it is an other device that tries to talk to this specific adress / device"
 
     }
@@ -117,8 +117,15 @@ function applyLanguage() {
     const lang = isDE ? "DE" : "EN";
 
     document.documentElement.lang = isDE ? "de" : "en";
+    
+    var displayText = ""
+    
+    if (document.documentElement.lang == "de")
+        displayText = "Deutsch" 
+    else
+        displayText = "English" 
 
-    document.getElementById("button").textContent = document.documentElement.lang;
+    document.getElementById("button").textContent = displayText;
     document.getElementById("http-description").innerHTML = translations[lang].http_description;
     document.getElementById("sftp-description").innerHTML = translations[lang].sftp_description;
     document.getElementById("ftp-description").innerHTML = translations[lang].ftp_description;
@@ -131,9 +138,6 @@ function applyLanguage() {
     document.getElementById("wireshark-description").innerHTML = translations[lang].wireshark_description;
     document.getElementById("dns-description").innerHTML = translations[lang].dns_description;
     document.getElementById("ipv4-description").innerHTML = translations[lang].ipv4_description;
-
-
-
 }
 
 applyLanguage();
