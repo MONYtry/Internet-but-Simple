@@ -1,156 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+
 <head>
     <title>MONY - Internet</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+
     <h1>Internet explained but simple</h1>
+
+    <button onclick="changeLanguage()">DE / EN</button>
 
     <section id="SFTP">
         <h2>SFTP</h2>
-        <p>
-            SFTP ist ein File Transport Protocol basierend auf SSH (deshalb auch SFTP) womit man Datein auf einen
-            Server
-            erstellen, bearbeiten oder löschen kann!
-            <br><br>
-            Und dabei ist alles Verschlüsselt somit kann niemand mitlesen.
-        </p>
+        <p id="sftp-description"></p>
     </section>
 
     <section id="FTP">
         <h2>FTP</h2>
-        <p>
-            FTP ist ein File Transport Protocol womit man Datein auf einen Server erstellen, bearbeiten oder löschen
-            kann!
-            <br><br>
-            jedoch leider nicht sicher. Durch eine MIT-Attack kann der gesamte Verkehr (unteranderem auch die Datei
-            selbst) mitgelesen werden daher lieber <b>SFTP</b> benutzen
-        </p>
+        <p id="ftp-description"></p>
     </section>
 
-    <section id="FTP">
+    <section id="SSH">
         <h2>SSH</h2>
-        <p>
-            SSH ist eine Secure Shell wobei man auch sagen kann das es ein Remote-Server-Accsess ist.
-            <br><br>
-            Es ist eine Verbindung zu einem entfernten Server komplett Verschlüsselt.
-            <br><br>
-            Wie ist sie verschlüsselt?
-            <br><br>
-            Während des Verbindungsaufbau findet ein Kryptographischer Schlüsselaustausch statt.
-            <br><br>
-            Dabei wird ein gemeinsamer Sitzungsschlüssel abgeleitet. Mit diesem gemeinsamen Schlüssel wird die
-            Verbindung verschlüsselt.
-            <br><br>
-            Das dient der Sicherheit, somit kann niemand mehr mitlesen
-        </p>
+        <p id="ssh-description"></p>
     </section>
 
     <section id="SMTP">
         <h2>SMTP</h2>
-        <p>
-            SMTP steht für Simple Mail Transfer Protocol.
-            <br><br>
-            Es wird verwendet um E-Mails von einem Client an einen Mailserver oder zwischen Mailservern zu
-            übertragen.
-            <br><br>
-            Zum Abrufen von E-Mails werden hingegen meistens IMAP oder POP3 verwendet.
-        </p>
+        <p id="smtp-description"></p>
     </section>
 
     <section id="TCP">
         <h2>TCP</h2>
-        <p>
-            TCP ist ein Protocol welches Daten überträgt.
-            <br><br>
-            Bevor aber Daten gesendet werden können muss ein so genannter <b>TCP-Handshake</b> erfolgen.
-            <br><br>
-            Falls dieser Erfolgreich war werden so Daten Übertragen:
-            <br><br>
-            Daten gesendet -> Empfangen?
-            <br><br>
-            Falls nein -> Erneut den fehlenden Teil senden
-            <br><br>
-            Quasi wie die Post, gut für Nachrichten.
-        </p>
+        <p id="tcp-description"></p>
     </section>
 
     <section id="TCP-Handshake">
         <h2>TCP-Handshake</h2>
-        <p>
-            Wenn ein Nutzer eine TCP Anfrage sendet passiert folgendes:
-            <br><br>
-            Nutzer sendet SYN
-            <br>
-            Server antwortet mit SYN + ACK
-            <br>
-            Nutzer sendet ACK
-            <br><br>
-            Danach steht die Verbindung erst
-            <br><br>
-            *ACK = Acknowledgment, SYN = Synchronize
-        </p>
+        <p id="handshake-description"></p>
     </section>
 
     <section id="UDP">
         <h2>UDP</h2>
-        <p>
-            UDP ist ein Protocol welches Daten sendet auch wenn sie nicht ankommen.
-            <br><br>
-            Gut für Live-Übertragungen
-        </p>
+        <p id="udp-description"></p>
     </section>
 
     <section id="HTTP">
         <h2>HTTP</h2>
-        <p>
-            HTTP bedeutet HyperText Transfer Protocol.
-            <br><br>
-            Man hört es ständig und es steht in jeder URL.
-            <br><br>
-            HTTP wird von deinem Browser genutzt um Websiten anzuzeigen jedoch ist sie keines wegs sicher!
-            <br><br>
-            Alle Daten sind unverschlüsselt und durch Tools wie z.B. <b>Wireshark</b> sehr einfach nachzuverfolgen.
-            <br><br>
-            Es gibt verschiede Anfragen für Websiten / Hypertext z.B.
-            <br>
-            - GET
-            <br>
-            - POST
-            <br>
-            - DELETE
-            <br><br>
-            Wenn eine Browser deine Website laden will wird eine GET Anfrage gesendet welche ungefähr so aussieht:
-        <pre>
-GET /index.html HTTP/1.1
-Host: www.beispiel.de
-User-Agent: Mozilla/5.0
-Accept: text/html
-Connection: keep-alive
-            </pre>
-        index.html ist die angeforderete Ressource
-        <br><br>
-        Host ist die Domain von der angefragt wird
-        <br><br>
-        User-Agent gibt den Browser des Nutzers an
-        <br><br>
-        Accept gibt an welche datenformate akzeptiert werden
-        <br><br>
-        Connection gibt an ob die Verbindung bestehen bleibt
-        </p>
+        <p id="http-description"></p>
     </section>
 
     <section id="HTTPS">
         <h2>HTTPS</h2>
-        <p>
-            HTTPS bedeutet HyperText Transfer Protocol Secure.
-            <br><br>
-            Es unterscheidet sich hauptsächlich von dem Sicherheitsstandard.
-            <br><br>
-            Durch die Verschlüsselung der Daten ist es quasi unmöglich mehr mitzulesen.
-            <br><br>
-            Mittlerweile der Standard für alle Websiten / Hoster
-        </p>
+        <p id="https-description"></p>
     </section>
 
+    <script src="index.js"></script>
+
 </body>
+
+</html>
