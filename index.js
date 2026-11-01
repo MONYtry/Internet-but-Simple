@@ -48,7 +48,10 @@ const translations = {
 
         udp_description: "UDP ist ein Protokoll, welches Daten sendet, auch wenn sie nicht ankommen.<br><br>Gut für Live-Übertragungen.",
 
-        https_description: "HTTPS bedeutet HyperText Transfer Protocol Secure.<br><br>Es unterscheidet sich hauptsächlich durch den Sicherheitsstandard von HTTP.<br><br>Durch die Verschlüsselung der Daten ist es für Außenstehende sehr schwierig, die übertragenen Inhalte mitzulesen.<br><br>Mittlerweile ist es der Standard für Websites / Hoster."
+        https_description: "HTTPS bedeutet HyperText Transfer Protocol Secure.<br><br>Es unterscheidet sich hauptsächlich durch den Sicherheitsstandard von HTTP.<br><br>Durch die Verschlüsselung der Daten ist es für Außenstehende sehr schwierig, die übertragenen Inhalte mitzulesen.<br><br>Mittlerweile ist es der Standard für Websites / Hoster.",
+        wireshark_description: "Wireshark ist eine Software gemacht für das Analysieren des Netzwerkes und auch sein Verkehr",
+        dns_description: "DNS steht für Dynamic Name System. Anstatt das man immer wieder eine <a href='#IPv4'>IPv4</a> eingibt nutzt man Domains.",
+        ipv4_description: "Eine IPv4-Adresse ist im Grunde wie eine Postadresse.<br><br>Statt eines Postboten verwendet ein anderes Gerät diese Adresse, um mit einem bestimmten Gerät im Netzwerk zu kommunizieren.<br><br>So weiß das Netzwerk, an welches Gerät die Daten gesendet werden sollen.",
     },
 
     EN: {
@@ -97,7 +100,11 @@ const translations = {
 
         udp_description: "UDP is a protocol that sends data without checking whether it actually arrives.<br><br>It is useful for live broadcasts and real-time communication.",
 
-        https_description: "HTTPS stands for HyperText Transfer Protocol Secure.<br><br>The main difference from HTTP is its security.<br><br>Data is encrypted, making it much harder for outsiders to read the transmitted information.<br><br>Today, HTTPS is the standard for websites."
+        https_description: "HTTPS stands for HyperText Transfer Protocol Secure.<br><br>The main difference from HTTP is its security.<br><br>Data is encrypted, making it much harder for outsiders to read the transmitted information.<br><br>Today, HTTPS is the standard for websites.",
+        wireshark_description: "Wireshark is an Software made for analysing the network and its traffic",
+        dns_description: "DNS stands for Dynamic Name System. Instead of typing  das man immer wieder eine <a href='#IPv4'>IPv4</a> eingibt nutzt man Domains.",
+        ipv4_description: "An IPv4 is basicly an mail-adress that is getting used by your deliveryguy. But instead of the deliveryguy it is an other device that tries to talk to this specific adress / device"
+
     }
 };
 
@@ -111,6 +118,7 @@ function applyLanguage() {
 
     document.documentElement.lang = isDE ? "de" : "en";
 
+    document.getElementById("button").textContent = document.documentElement.lang;
     document.getElementById("http-description").innerHTML = translations[lang].http_description;
     document.getElementById("sftp-description").innerHTML = translations[lang].sftp_description;
     document.getElementById("ftp-description").innerHTML = translations[lang].ftp_description;
@@ -120,6 +128,12 @@ function applyLanguage() {
     document.getElementById("handshake-description").innerHTML = translations[lang].handshake_description;
     document.getElementById("udp-description").innerHTML = translations[lang].udp_description;
     document.getElementById("https-description").innerHTML = translations[lang].https_description;
+    document.getElementById("wireshark-description").innerHTML = translations[lang].wireshark_description;
+    document.getElementById("dns-description").innerHTML = translations[lang].dns_description;
+    document.getElementById("ipv4-description").innerHTML = translations[lang].ipv4_description;
+
+
+
 }
 
 applyLanguage();
